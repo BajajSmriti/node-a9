@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/webdev');
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost:27017/webdev');
 
 //Handling CORS
 app.use(function(req, res, next) {
